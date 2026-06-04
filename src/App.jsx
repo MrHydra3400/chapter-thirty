@@ -360,9 +360,10 @@ function SkillCard({ skill, sk, onToggle, onPractice, ui }) {
       </button>
       {open && (
         <div style={{ padding: "2px 15px 14px 70px", display: "grid", gap: 7 }}>
-          <button onClick={onPractice} style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 10, padding: "9px 11px", borderRadius: 8, border: `1px dashed ${cs.ring}`, background: "rgba(70,240,138,0.04)", color: cs.ring, textAlign: "left", fontSize: 13.5 }}>
+          <button onClick={sk.reps < 50 ? onPractice : undefined} style={{ cursor: sk.reps < 50 ? "pointer" : "not-allowed", opacity: sk.reps >= 50 ? 0.5 : 1, display: "flex", alignItems: "center", gap: 10, padding: "9px 11px", borderRadius: 8, border: `1px dashed ${cs.ring}`, background: "rgba(70,240,138,0.04)", color: cs.ring, textAlign: "left", fontSize: 13.5, width: "100%" }}>
+            <span style={{ ...ui.display, fontSize: 13, fontWeight: 700, minWidth: 36, textAlign: "center", background: "rgba(70,240,138,0.12)", borderRadius: 6, padding: "2px 6px" }}>{sk.reps}/50</span>
             <Repeat size={15} /> {skill.rep}
-            <span style={{ marginLeft: "auto", ...ui.display, fontSize: 11 }}>+{skill.repXp ?? 25} · ripetibile</span>
+            <span style={{ marginLeft: "auto", ...ui.display, fontSize: 11 }}>{sk.reps >= 50 ? "MAX" : `+${skill.repXp ?? 25} · ripetibile`}</span>
           </button>
           {skill.milestones.map((m, i) => (
             <button key={i} onClick={() => onToggle(i)} style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 10, padding: "8px 11px", borderRadius: 8,
