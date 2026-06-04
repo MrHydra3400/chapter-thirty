@@ -16,29 +16,69 @@ const POINT_CHOICES = [25, 50, 75, 100, 200];
 
 const SKILLS_SEED = [
   { id: "esecutivi", name: "Esecutivi & Definitivi", cat: "Mestiere", icon: "Hammer",
-    desc: "Dettagli costruttivi, cantiere, il fare reale.", rep: "Studia 1 dettaglio",
-    milestones: ["Studia 1 esecutivo reale", "Affianca un senior", "Disegna un nodo costruttivo", "Segui 1 cantiere"] },
+    desc: "Dettagli costruttivi, cantiere, il fare reale.", rep: "Studia 1 dettaglio", repXp: 25,
+    milestones: [
+      { text: "Studia 1 esecutivo reale", xp: 50 },
+      { text: "Affianca un senior", xp: 75 },
+      { text: "Disegna un nodo costruttivo", xp: 100 },
+      { text: "Segui 1 cantiere", xp: 150 },
+    ]},
   { id: "paesaggio", name: "Paesaggio Avanzato", cat: "Mestiere", icon: "Trees",
-    desc: "Piazze, parchi, spazio pubblico.", rep: "Analizza 1 pianta / luogo",
-    milestones: ["Concept spazio pubblico", "Studio specie/materiali", "Progetto definitivo paesaggio", "Cantiere paesaggio seguito"] },
+    desc: "Piazze, parchi, spazio pubblico.", rep: "Analizza 1 pianta / luogo", repXp: 25,
+    milestones: [
+      { text: "Concept spazio pubblico", xp: 50 },
+      { text: "Studio specie/materiali", xp: 75 },
+      { text: "Progetto definitivo paesaggio", xp: 100 },
+      { text: "Cantiere paesaggio seguito", xp: 150 },
+    ]},
   { id: "gestione", name: "Gestione Progetto", cat: "Mestiere", icon: "ClipboardList",
-    desc: "Timeline, team, consegne, capo-progetto.", rep: "1 azione di coordinamento",
-    milestones: ["Mappa un workflow di studio", "Gestisci 1 consegna end-to-end", "Coordina 1 consulente", "Guida 1 mini-progetto"] },
+    desc: "Timeline, team, consegne, capo-progetto.", rep: "1 azione di coordinamento", repXp: 25,
+    milestones: [
+      { text: "Mappa un workflow di studio", xp: 50 },
+      { text: "Gestisci 1 consegna end-to-end", xp: 75 },
+      { text: "Coordina 1 consulente", xp: 100 },
+      { text: "Guida 1 mini-progetto", xp: 150 },
+    ]},
   { id: "fiscale", name: "Intelligenza Fiscale", cat: "Madrid", icon: "Coins",
-    desc: "Tasse, agevolazioni, costo reale della vita.", rep: "1 ricerca fiscale",
-    milestones: ["Capisci il regime fiscale ES", "Agevolazioni stranieri / Beckham", "Costo medio casa Madrid", "Stipendio-soglia + risparmio"] },
+    desc: "Tasse, agevolazioni, costo reale della vita.", rep: "1 ricerca fiscale", repXp: 25,
+    milestones: [
+      { text: "Capisci il regime fiscale ES", xp: 50 },
+      { text: "Agevolazioni stranieri / Beckham", xp: 75 },
+      { text: "Costo medio casa Madrid", xp: 50 },
+      { text: "Stipendio-soglia + risparmio", xp: 100 },
+    ]},
   { id: "negoziazione", name: "Negoziazione", cat: "Madrid", icon: "ScrollText",
-    desc: "Sapere il tuo valore di mercato e chiederlo.", rep: "1 dato di mercato raccolto",
-    milestones: ["Range stipendi paesaggio ES", "Definisci il tuo numero minimo", "Lista di ciò che vuoi (non solo €)", "Script colloquio pronto"] },
+    desc: "Sapere il tuo valore di mercato e chiederlo.", rep: "1 dato di mercato raccolto", repXp: 25,
+    milestones: [
+      { text: "Range stipendi paesaggio ES", xp: 50 },
+      { text: "Definisci il tuo numero minimo", xp: 75 },
+      { text: "Lista di ciò che vuoi (non solo €)", xp: 50 },
+      { text: "Script colloquio pronto", xp: 100 },
+    ]},
   { id: "ricerca", name: "Ricerca Città", cat: "Madrid", icon: "MapPin",
-    desc: "Studi target, casa col cane, logistica.", rep: "1 studio / contatto trovato",
-    milestones: ["3 studi target individuati", "Verifica casa pet-friendly", "Logistica cane (volo/trasloco)", "3 email inviate"] },
+    desc: "Studi target, casa col cane, logistica.", rep: "1 studio / contatto trovato", repXp: 25,
+    milestones: [
+      { text: "3 studi target individuati", xp: 75 },
+      { text: "Verifica casa pet-friendly", xp: 50 },
+      { text: "Logistica cane (volo/trasloco)", xp: 50 },
+      { text: "3 email inviate", xp: 200 },
+    ]},
   { id: "forza", name: "Forza", cat: "Corpo", icon: "Dumbbell",
-    desc: "La palestra esiste. Usala.", rep: "1 allenamento",
-    milestones: ["Prima sessione (ghiaccio rotto)", "1 settimana × 2 allenamenti", "1 mese × 3/sett", "Ritorno al ritmo basket"] },
+    desc: "La palestra esiste. Usala.", rep: "1 allenamento", repXp: 25,
+    milestones: [
+      { text: "Prima sessione (ghiaccio rotto)", xp: 50 },
+      { text: "1 settimana × 2 allenamenti", xp: 75 },
+      { text: "1 mese × 3/sett", xp: 150 },
+      { text: "Ritorno al ritmo basket", xp: 200 },
+    ]},
   { id: "disciplina", name: "Disciplina", cat: "Corpo", icon: "Flame",
-    desc: "Orari, sonno, gaming al posto giusto.", rep: "1 giorno on-track",
-    milestones: ["1 settimana studio ≤9:30", "Stop gaming dopo l'1:00", "1 mese di routine stabile", "Prima quota risparmiata"] },
+    desc: "Orari, sonno, gaming al posto giusto.", rep: "1 giorno on-track", repXp: 25,
+    milestones: [
+      { text: "1 settimana studio ≤9:30", xp: 75 },
+      { text: "Stop gaming dopo l'1:00", xp: 75 },
+      { text: "1 mese di routine stabile", xp: 150 },
+      { text: "Prima quota risparmiata", xp: 100 },
+    ]},
 ];
 
 const PORTFOLIO_STEPS = ["File impaginato", "Progetti selezionati", "Mood board", "Colori definiti"];
@@ -105,19 +145,23 @@ export default function App({ session }) {
   };
 
   const toggleMilestone = (skillId, idx) => {
+    const skill = SKILLS_SEED.find(s => s.id === skillId);
+    const xp = skill.milestones[idx].xp;
     const done = [...state.skills[skillId].done];
     const wasDone = done[idx]; done[idx] = !wasDone;
     let next = { ...state, skills: { ...state.skills, [skillId]: { ...state.skills[skillId], done } } };
-    if (!wasDone) { next = addXP(next, 50); fireToast("+50 XP — impresa sbloccata"); }
-    else next = { ...next, xp: Math.max(0, next.xp - 50) };
+    if (!wasDone) { next = addXP(next, xp); fireToast(`+${xp} XP — impresa sbloccata`); }
+    else next = { ...next, xp: Math.max(0, next.xp - xp) };
     persist(next);
   };
 
   const practice = (skillId) => {
+    const skill = SKILLS_SEED.find(s => s.id === skillId);
+    const xp = skill.repXp ?? 25;
     const sk = state.skills[skillId];
     let next = { ...state, skills: { ...state.skills, [skillId]: { ...sk, reps: sk.reps + 1 } } };
-    next = addXP(next, 25);
-    persist(next); fireToast("+25 XP — pratica");
+    next = addXP(next, xp);
+    persist(next); fireToast(`+${xp} XP — pratica`);
   };
 
   const togglePortfolio = (idx) => {
@@ -318,7 +362,7 @@ function SkillCard({ skill, sk, onToggle, onPractice, ui }) {
         <div style={{ padding: "2px 15px 14px 70px", display: "grid", gap: 7 }}>
           <button onClick={onPractice} style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 10, padding: "9px 11px", borderRadius: 8, border: `1px dashed ${cs.ring}`, background: "rgba(70,240,138,0.04)", color: cs.ring, textAlign: "left", fontSize: 13.5 }}>
             <Repeat size={15} /> {skill.rep}
-            <span style={{ marginLeft: "auto", ...ui.display, fontSize: 11 }}>+25 · ripetibile</span>
+            <span style={{ marginLeft: "auto", ...ui.display, fontSize: 11 }}>+{skill.repXp ?? 25} · ripetibile</span>
           </button>
           {skill.milestones.map((m, i) => (
             <button key={i} onClick={() => onToggle(i)} style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 10, padding: "8px 11px", borderRadius: 8,
@@ -326,8 +370,8 @@ function SkillCard({ skill, sk, onToggle, onPractice, ui }) {
               <span style={{ flexShrink: 0, width: 19, height: 19, borderRadius: 5, display: "flex", alignItems: "center", justifyContent: "center", border: `1px solid ${cs.ring}`, background: done[i] ? cs.ring : "transparent", color: "#06140c" }}>
                 {done[i] && <Check size={13} />}
               </span>
-              {m}
-              <span style={{ marginLeft: "auto", fontSize: 11, color: cs.ring, ...ui.display }}>+50</span>
+              {m.text}
+              <span style={{ marginLeft: "auto", fontSize: 11, color: cs.ring, ...ui.display }}>+{m.xp}</span>
             </button>
           ))}
         </div>
